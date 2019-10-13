@@ -1,0 +1,55 @@
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+---
+test:
+  name: applyCred
+  description: This is an example benchmark for caliper, to test the backend DLT's
+    performance with applyCred  uploading & querying transactions
+  clients:
+    type: local
+    number: 1
+  rounds:
+
+  - label: upload-Apply
+    description: test uploadApplyInfo
+    txNumber:
+    - 500
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 10
+    arguments:
+        txnPerBatch: 10
+    callback: benchmark/applyCred/uploadApplyInfo.js
+
+  - label: query-ApplyInfo
+    description: test queryApplyInfo
+    txNumber:
+    - 500
+    rateControl:
+    - type: fixed-rate
+      opts:
+        tps: 50
+    arguments:
+      txnPerBatch: 10
+    callback: benchmark/applyCred/queryApplyInfo.js
+monitor:
+  type:
+  - docker
+  - process
+  docker:
+    name:
+    - all
+  process:
+  - command: node
+    arguments: local-client.js
+    multiOutput: avg
+  interval: 1
