@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+<head>
+    <title>Caliper Report</title>
+    <meta charset="UTF-8"/>
+    <style type="text/css">
+        .left-column {
+            position: fixed;
+            width:20%;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+        }
+        .right-column {
+            margin-left: 22%;
+            width:60%;
+        }
+        .left-column ul,h2 {
+            display: block;
+            margin: 10px;
+            padding: 0;
+            list-style: none;
+        }
+        .left-column ul{
+            border-top: 1px solid #d9d9d9;
+            font-size: 14px;
+        }
+        .left-column li{
+            margin-bottom: 5px;
+            color: #5e6b73;
+        }
+        .left-column h3 {
+            border-left: 5px solid #009a61;
+        }
+        .right-column>div {
+            border-top: 1px solid #d9d9d9;
+        }
+        .right-column table {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        .right-column th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #f2f2f2;
+        }
+        .right-column td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #666666;
+            background-color: #ffffff;
+        }
+        .tag {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            background-color: rgba(1,126,102,0.08);
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color: #017E66;
+            text-align: center;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+        }
+        pre {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+            overflow:auto;
+            max-height:300px;
+            font-size:12px;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <div class="left-column">
+        <h2>Caliper Report</h2>
+        <ul>
+            <h3>&nbspBasic information</h3>
+            <li><strong>DLT: &nbsp</strong><span>fabric</span></li>
+            <li><strong>Benchmark: &nbsp</strong><span>applyCred</span></li>
+            <li><strong>Description: &nbsp</strong><span>This is an example benchmark for caliper, to test the backend DLT&#39;s performance with applyCred  uploading &amp; querying transactions</span></li>
+            <li><strong>Test Rounds: &nbsp</strong><span>2</span></li>
+            <li><a href="#benchmarkInfo">Details</a></li>
+        </ul>
+        <ul>
+            <h3>&nbspBenchmark results</h3>
+            <li><a href="#benchmarksummary">Summary</a></li>
+                <li><a href="#upload-Apply">upload-Apply</a></li>
+                <li><a href="#query-ApplyInfo">query-ApplyInfo</a></li>
+        </ul>
+        <ul>
+            <h3>&nbspSystem Under Test</h3>
+            <li><strong>Version: &nbsp</strong><span>1.4.0</span></li>
+            <li><strong>Size: &nbsp</strong><span>2 Orgs with 1 Peer</span></li>
+            <li><strong>Orderer: &nbsp</strong><span>Solo</span></li>
+            <li><strong>Distribution: &nbsp</strong><span>Single Host</span></li>
+            <li><strong>StateDB: &nbsp</strong><span>CouchDB</span></li>
+            <li><a href="#sutdetails">Details</a></li>
+        </ul>
+    </div>
+
+    <div class="right-column">
+        <div id="benchmarksummary">
+            <table>
+                <h3>Summary</h3>
+                <tr>
+                     <th>Test</th> <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate</th> <th>Max Latency</th> <th>Min Latency</th> <th>Avg Latency</th> <th>Throughput</th>
+                </tr>
+
+                <tr>
+                     <td>1</td> <td>upload-Apply</td> <td>500</td> <td>0</td> <td>10.2 tps</td> <td>0.26 s</td> <td>0.11 s</td> <td>0.15 s</td> <td>10.2 tps</td>
+                </tr>
+                <tr>
+                     <td>2</td> <td>query-ApplyInfo</td> <td>500</td> <td>0</td> <td>50.1 tps</td> <td>0.10 s</td> <td>0.01 s</td> <td>0.01 s</td> <td>50.0 tps</td>
+                </tr>
+            </table>
+        </div>
+        <div id="upload-Apply">
+            <h3>upload-Apply</h3>
+            <p>test uploadApplyInfo</p>
+                <h3>round 0</h3>
+                <strong class="tag">performance metrics</strong>
+                <table>
+                    <tr>
+                         <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate</th> <th>Max Latency</th> <th>Min Latency</th> <th>Avg Latency</th> <th>Throughput</th>
+                    </tr>
+                    <tr>
+                         <td>upload-Apply</td> <td>500</td> <td>0</td> <td>10.2 tps</td> <td>0.26 s</td> <td>0.11 s</td> <td>0.15 s</td> <td>10.2 tps</td>
+                    </tr>
+                </table>
+                <strong class="tag">resource consumption</strong>
+                <table>
+                    <tr>
+                         <th>TYPE</th> <th>NAME</th> <th>Memory(max)</th> <th>Memory(avg)</th> <th>CPU(max)</th> <th>CPU(avg)</th> <th>Traffic In</th> <th>Traffic Out</th> <th>Disc Read</th> <th>Disc Write</th>
+                    </tr>
+                    <tr>
+                         <td>Process</td> <td>node local-client.js(avg)</td> <td>-</td> <td>-</td> <td>NaN%</td> <td>NaN%</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>dev-peer0.org2.example.co...ed-v1</td> <td>7.9MB</td> <td>7.5MB</td> <td>0.97%</td> <td>0.38%</td> <td>882.0KB</td> <td>304.1KB</td> <td>0B</td> <td>0B</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>dev-peer0.org1.example.co...ed-v1</td> <td>8.4MB</td> <td>7.8MB</td> <td>1.30%</td> <td>0.43%</td> <td>861.1KB</td> <td>293.1KB</td> <td>0B</td> <td>0B</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>peer0.org1.example.com</td> <td>122.4MB</td> <td>116.4MB</td> <td>9.67%</td> <td>6.62%</td> <td>3.2MB</td> <td>1.8MB</td> <td>208.0KB</td> <td>6.3MB</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>peer0.org2.example.com</td> <td>104.8MB</td> <td>98.4MB</td> <td>10.62%</td> <td>6.68%</td> <td>3.3MB</td> <td>1.8MB</td> <td>0B</td> <td>6.4MB</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>couchdb.org2.example.com</td> <td>117.5MB</td> <td>114.3MB</td> <td>7.06%</td> <td>5.30%</td> <td>202.5KB</td> <td>248.6KB</td> <td>0B</td> <td>5.5MB</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>couchdb.org1.example.com</td> <td>115.1MB</td> <td>113.0MB</td> <td>12.72%</td> <td>6.13%</td> <td>201.8KB</td> <td>248.5KB</td> <td>0B</td> <td>5.3MB</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>orderer.example.com</td> <td>18.2MB</td> <td>16.4MB</td> <td>3.10%</td> <td>1.55%</td> <td>2.2MB</td> <td>4.3MB</td> <td>0B</td> <td>4.9MB</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>ca.org2.example.com</td> <td>9.4MB</td> <td>9.4MB</td> <td>0.00%</td> <td>0.00%</td> <td>140B</td> <td>0B</td> <td>0B</td> <td>0B</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>ca.org1.example.com</td> <td>9.8MB</td> <td>9.8MB</td> <td>0.00%</td> <td>0.00%</td> <td>140B</td> <td>0B</td> <td>0B</td> <td>0B</td>
+                    </tr>
+                </table>
+        </div>
+        <div id="query-ApplyInfo">
+            <h3>query-ApplyInfo</h3>
+            <p>test queryApplyInfo</p>
+                <h3>round 0</h3>
+                <strong class="tag">performance metrics</strong>
+                <table>
+                    <tr>
+                         <th>Name</th> <th>Succ</th> <th>Fail</th> <th>Send Rate</th> <th>Max Latency</th> <th>Min Latency</th> <th>Avg Latency</th> <th>Throughput</th>
+                    </tr>
+                    <tr>
+                         <td>query-ApplyInfo</td> <td>500</td> <td>0</td> <td>50.1 tps</td> <td>0.10 s</td> <td>0.01 s</td> <td>0.01 s</td> <td>50.0 tps</td>
+                    </tr>
+                </table>
+                <strong class="tag">resource consumption</strong>
+                <table>
+                    <tr>
+                         <th>TYPE</th> <th>NAME</th> <th>Memory(max)</th> <th>Memory(avg)</th> <th>CPU(max)</th> <th>CPU(avg)</th> <th>Traffic In</th> <th>Traffic Out</th> <th>Disc Read</th> <th>Disc Write</th>
+                    </tr>
+                    <tr>
+                         <td>Process</td> <td>node local-client.js(avg)</td> <td>-</td> <td>-</td> <td>NaN%</td> <td>NaN%</td> <td>-</td> <td>-</td> <td>-</td> <td>-</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>dev-peer0.org2.example.co...ed-v1</td> <td>8.2MB</td> <td>8.1MB</td> <td>7.84%</td> <td>7.53%</td> <td>691.5KB</td> <td>301.5KB</td> <td>0B</td> <td>0B</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>dev-peer0.org1.example.co...ed-v1</td> <td>8.3MB</td> <td>8.3MB</td> <td>7.66%</td> <td>7.28%</td> <td>698.7KB</td> <td>311.6KB</td> <td>0B</td> <td>0B</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>peer0.org1.example.com</td> <td>122.8MB</td> <td>122.6MB</td> <td>27.81%</td> <td>26.56%</td> <td>990.2KB</td> <td>1.2MB</td> <td>0B</td> <td>0B</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>peer0.org2.example.com</td> <td>105.0MB</td> <td>105.0MB</td> <td>28.18%</td> <td>26.98%</td> <td>999.3KB</td> <td>1.3MB</td> <td>0B</td> <td>0B</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>couchdb.org2.example.com</td> <td>117.6MB</td> <td>117.6MB</td> <td>17.98%</td> <td>16.38%</td> <td>101.3KB</td> <td>185.8KB</td> <td>0B</td> <td>0B</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>couchdb.org1.example.com</td> <td>115.3MB</td> <td>115.2MB</td> <td>18.47%</td> <td>16.01%</td> <td>97.0KB</td> <td>178.0KB</td> <td>0B</td> <td>0B</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>orderer.example.com</td> <td>18.2MB</td> <td>18.2MB</td> <td>0.02%</td> <td>0.01%</td> <td>132B</td> <td>66B</td> <td>0B</td> <td>0B</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>ca.org2.example.com</td> <td>9.4MB</td> <td>9.4MB</td> <td>0.00%</td> <td>0.00%</td> <td>0B</td> <td>0B</td> <td>0B</td> <td>0B</td>
+                    </tr>
+                    <tr>
+                         <td>Docker</td> <td>ca.org1.example.com</td> <td>9.8MB</td> <td>9.8MB</td> <td>0.00%</td> <td>0.00%</td> <td>0B</td> <td>0B</td> <td>0B</td> <td>0B</td>
+                    </tr>
+                </table>
+        </div>
+        <div>
+            <h3>Test Environment</h3>
+            <strong class="tag">benchmark config</strong>
+            <pre id="benchmarkInfo" style="overflow: visible;white-space: pre-wrap;max-height:100%;">{
+  &quot;name&quot;: &quot;applyCred&quot;,
+  &quot;description&quot;: &quot;This is an example benchmark for caliper, to test the backend DLT&#39;s performance with applyCred  uploading &amp; querying transactions&quot;,
+  &quot;clients&quot;: {
+    &quot;type&quot;: &quot;local&quot;,
+    &quot;number&quot;: 1
+  },
+  &quot;rounds&quot;: [
+    {
+      &quot;label&quot;: &quot;upload-Apply&quot;,
+      &quot;description&quot;: &quot;test uploadApplyInfo&quot;,
+      &quot;txNumber&quot;: [
+        500
+      ],
+      &quot;rateControl&quot;: [
+        {
+          &quot;type&quot;: &quot;fixed-rate&quot;,
+          &quot;opts&quot;: {
+            &quot;tps&quot;: 10
+          }
+        }
+      ],
+      &quot;arguments&quot;: {
+        &quot;txnPerBatch&quot;: 10
+      },
+      &quot;callback&quot;: &quot;benchmark&#x2F;applyCred&#x2F;uploadApplyInfo.js&quot;
+    },
+    {
+      &quot;label&quot;: &quot;query-ApplyInfo&quot;,
+      &quot;description&quot;: &quot;test queryApplyInfo&quot;,
+      &quot;txNumber&quot;: [
+        500
+      ],
+      &quot;rateControl&quot;: [
+        {
+          &quot;type&quot;: &quot;fixed-rate&quot;,
+          &quot;opts&quot;: {
+            &quot;tps&quot;: 50
+          }
+        }
+      ],
+      &quot;arguments&quot;: {
+        &quot;txnPerBatch&quot;: 10
+      },
+      &quot;callback&quot;: &quot;benchmark&#x2F;applyCred&#x2F;queryApplyInfo.js&quot;
+    }
+  ]
+}</pre>
+            <strong class="tag">SUT</strong>
+            <pre id="sutdetails">not provided</pre>
+        </div>
+    </div>
+
+
+</main>
+
+</body>
+</html>
